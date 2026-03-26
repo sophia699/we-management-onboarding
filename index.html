@@ -1,10 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>WE Management Services – Credit Repair Onboarding</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#111827;height:100vh;overflow:hidden}
+.hidden{display:none!important}
+/* TOP BAR */
+#topbar{display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem}
+#topbar.presenter{background:#1f2937;border-bottom:1px solid #374151}
+#topbar.client{background:#1a1a1a}
+.brand .we{color:#D4940A;font-weight:900;font-size:1.1rem}
+.brand .ms{font-weight:900;font-size:1.1rem;color:#fff}
+.badge{background:#D4940A;color:#fff;font-size:.72rem;font-weight:700;padding:.25rem .6rem;border-radius:.4rem;margin-right:.5rem}
+.btn{cursor:pointer;border:none;font-family:inherit;font-weight:700;border-radius:.5rem;padding:.3rem .85rem;font-size:.78rem}
+.btn-gold{background:#D4940A;color:#fff}
+.btn-outline{background:transparent;color:#d1d5db;border:1px solid #6b7280}
+.btn-yellow{background:#facc15;color:#111827;border:1px solid #facc15}
+/* LAYOUT */
+#presenter-wrap{display:flex;flex:1;height:calc(100vh - 46px)}
+#slide-panel{background:#fff;display:flex;flex-direction:column;transition:width .3s}
+#slide-header{background:#fffbeb;border-bottom:1px solid #fde68a;padding:.5rem 1rem;display:flex;justify-content:space-between;align-items:center}
+#slide-header span{font-size:.72rem;color:#92400e;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+#slide-counter-p{font-size:.75rem;color:#9ca3af}
+#slide-content{flex:1;overflow:auto}
+/* SCRIPT PANEL */
+#script-panel{background:#111827;border-left:1px solid #374151;display:flex;flex-direction:column;width:40%}
+#script-header{background:#facc15;padding:.5rem 1rem}
+#script-header span{color:#111827;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+#script-body{flex:1;overflow:auto;padding:1.25rem}
+#script-body pre{color:#fff;font-size:.82rem;line-height:1.7;white-space:pre-wrap;font-family:'Courier New',monospace}
+/* NAV */
+.nav-bar{background:#f9fafb;border-top:1px solid #e5e7eb;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.dots{display:flex;gap:.4rem;align-items:center}
+.dot{width:11px;height:11px;border-radius:50%;background:#d1d5db;border:none;cursor:pointer;padding:0}
+.dot.active{background:#D4940A}
+.nav-btn{background:#D4940A;color:#fff;border:none;padding:.45rem 1.25rem;border-radius:.75rem;font-weight:700;font-size:.9rem;cursor:pointer}
+.nav-btn:disabled{opacity:.35;cursor:not-allowed}
+/* CLIENT VIEW */
+#client-wrap{display:flex;flex-direction:column;height:calc(100vh - 46px)}
+#client-content{flex:1;overflow:auto;background:#fff}
+/* SLIDES */
+.slide{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;padding:2rem;background:#fff;text-align:center}
+.slide h1{font-size:2.2rem;font-weight:800;color:#1a1a1a;margin-bottom:.75rem}
+.slide h2{font-size:2rem;font-weight:800;color:#1a1a1a;margin-bottom:2rem;text-align:center}
+.slide p{color:#6b7280;font-size:1.1rem}
+.gold-box{background:#fffbeb;border:2px solid #D4940A;border-radius:1rem;padding:1.25rem 2.5rem;margin-top:1rem}
+.gold-box p{font-size:1.35rem;font-weight:700;color:#92400e}
+.gold-box .sub{color:#9ca3af;margin-top:.4rem;font-size:.95rem}
+/* GRID CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;width:100%;max-width:700px}
+.card{background:#fffbeb;border:2px solid #D4940A;border-radius:1rem;padding:1.5rem;text-align:center}
+.card .icon{font-size:2.5rem;margin-bottom:.75rem}
+.card .label{color:#9ca3af;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.card .value{font-size:1.5rem;font-weight:800;color:#92400e;margin-top:.25rem}
+.warn-box{margin-top:2rem;background:#fef9c3;border:1px solid #fde68a;border-radius:.75rem;padding:1rem 2rem;text-align:center;max-width:600px}
+.warn-box p{color:#92400e;font-weight:500;font-size:.9rem}
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:1rem;width:100%;max-width:580px}
+.step-row{display:flex;align-items:flex-start;gap:1rem;background:#fff;border:1px solid #fde68a;border-radius:.75rem;padding:1rem 1.25rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.step-num{background:#D4940A;color:#fff;border-radius:50%;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;margin-top:2px}
+.step-icon{font-size:1.5rem;flex-shrink:0}
+.step-title{font-weight:700;color:#92400e;font-size:.95rem}
+.step-desc{color:#9ca3af;font-size:.82rem;margin-top:2px}
+/* EMAIL CARDS */
+.email-cards{display:flex;flex-direction:column;gap:1rem;width:100%;max-width:620px}
+.email-card{border-radius:1rem;overflow:hidden}
+.email-card .ec-header{padding:.5rem 1rem;display:flex;align-items:center;gap:.5rem}
+.email-card .ec-badge{font-weight:800;font-size:.72rem;padding:.15rem .5rem;border-radius:.3rem}
+.email-card .ec-title{color:#fff;font-weight:700;font-size:.82rem}
+.email-card .ec-body{padding:1rem 1.25rem}
+.email-card .ec-subject{font-weight:700;font-size:.9rem;margin-bottom:.2rem}
+.email-card .ec-from{color:#6b7280;font-size:.8rem;margin-bottom:.5rem}
+.email-card .ec-desc{font-size:.82rem;color:#374151}
+.email-card .ec-btn{margin-top:.75rem;display:inline-block;border-radius:.5rem;padding:.35rem .9rem;font-size:.78rem;font-weight:700;color:#fff}
+.ec-gold{background:#fffbeb;border:2px solid #D4940A}
+.ec-gold .ec-header{background:#D4940A}
+.ec-gold .ec-badge{background:#fff;color:#D4940A}
+.ec-gold .ec-subject{color:#92400e}
+.ec-gold .ec-btn{background:#D4940A}
+.ec-blue{background:#f0f9ff;border:2px solid #38bdf8}
+.ec-blue .ec-header{background:#0ea5e9}
+.ec-blue .ec-badge{background:#fff;color:#0ea5e9}
+.ec-blue .ec-subject{color:#0369a1}
+.ec-blue .ec-btn{background:#0ea5e9}
+.err-box{margin-top:1rem;background:#fef2f2;border:1px solid #fecaca;border-radius:.75rem;padding:.75rem 1.5rem;max-width:620px}
+.err-box p{color:#b91c1c;font-size:.82rem;font-weight:500}
+/* DOCS */
+.portal-steps{display:flex;flex-direction:column;gap:1rem;width:100%;max-width:560px}
+.portal-step{border-radius:1rem;padding:1rem 1.25rem;display:flex;gap:1rem;align-items:flex-start}
+.ps-gold{background:#fffbeb;border:2px solid #D4940A;align-items:center}
+.ps-green{background:#f0fdf4;border:2px solid #86efac}
+.ps-num{border-radius:50%;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;flex-shrink:0}
+.ps-gold .ps-num{background:#D4940A}
+.ps-green .ps-num{background:#16a34a;margin-top:2px}
+.ps-gold .ps-title{font-weight:700;color:#92400e}
+.ps-green .ps-title{font-weight:700;color:#166534;margin-bottom:.5rem}
+.ps-desc{color:#9ca3af;font-size:.82rem}
+.doc-item{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.5rem}
+.doc-icon{font-size:1.2rem}
+.doc-title{font-weight:600;color:#166534;font-size:.85rem}
+.doc-desc{color:#9ca3af;font-size:.75rem}
+.info-box{margin-top:1rem;background:#eff6ff;border:1px solid #bfdbfe;border-radius:.75rem;padding:.75rem 1.5rem;max-width:560px}
+.info-box p{color:#1d4ed8;font-size:.82rem}
+/* WRAP UP */
+.checklist{display:flex;flex-direction:column;gap:.65rem;width:100%;max-width:460px;text-align:left;margin-bottom:1.5rem}
+.check-item{display:flex;align-items:center;gap:1rem;background:#fffbeb;border:1px solid #fde68a;border-radius:.75rem;padding:.8rem 1.1rem}
+.check-num{width:1.75rem;height:1.75rem;border-radius:50%;background:#D4940A;color:#fff;font-size:.8rem;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+.check-text{color:#374151;font-size:.88rem;font-weight:500}
+.contact-box{background:#1a1a1a;border-radius:1rem;padding:1rem 2rem;width:100%;max-width:460px}
+.contact-box .ct{color:#D4940A;font-weight:700;font-size:.85rem;margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.05em}
+.contact-box p{color:#fff;font-size:.85rem;margin-bottom:.3rem}
+.contact-box .hours{color:#9ca3af;font-size:.8rem}
+</style>
+</head>
+<body>
 
-import { useState } from "react";
+<!-- PRESENTER TOP BAR -->
+<div id="topbar-presenter" id="topbar" class="presenter" style="display:flex">
+  <div style="display:flex;align-items:center;gap:.75rem">
+    <span class="badge">PRESENTER</span>
+    <span class="brand"><span class="we">WE</span><span class="ms"> MANAGEMENT SERVICES</span></span>
+  </div>
+  <div style="display:flex;gap:.75rem;align-items:center">
+    <button class="btn btn-yellow" id="toggleScript" onclick="toggleScript()">📝 Script ON</button>
+    <button class="btn btn-gold" onclick="switchView('client')">👁️ Client View</button>
+  </div>
+</div>
 
-const slides = [
-  {
-    id: 0,
-    script: `👋 SCRIPT — Welcome & Introduction
+<!-- CLIENT TOP BAR -->
+<div id="topbar-client" class="hidden" style="display:none">
+  <div id="topbar" class="client" style="display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.5rem">
+    <span class="brand"><span class="we">WE</span><span class="ms"> MANAGEMENT SERVICES</span></span>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <span style="color:#9ca3af;font-size:.85rem" id="client-counter">Slide 1 of 6</span>
+      <button class="btn btn-gold" onclick="switchView('presenter')">Presenter View</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRESENTER VIEW -->
+<div id="presenter-wrap">
+  <div id="slide-panel" style="width:60%">
+    <div id="slide-header">
+      <span>Client View Preview</span>
+      <span id="slide-counter-p">Slide 1 / 6</span>
+    </div>
+    <div id="slide-content"></div>
+    <div class="nav-bar">
+      <button class="nav-btn" id="prev-btn" onclick="prevSlide()" disabled>← Back</button>
+      <div class="dots" id="dots-p"></div>
+      <button class="nav-btn" id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+  </div>
+  <div id="script-panel">
+    <div id="script-header"><span>📝 Your Script — Clients Cannot See This</span></div>
+    <div id="script-body"><pre id="script-text"></pre></div>
+  </div>
+</div>
+
+<!-- CLIENT VIEW -->
+<div id="client-wrap" class="hidden">
+  <div id="client-content"></div>
+  <div class="nav-bar">
+    <button class="nav-btn" id="prev-btn-c" onclick="prevSlide()" disabled>← Back</button>
+    <div class="dots" id="dots-c"></div>
+    <button class="nav-btn" id="next-btn-c" onclick="nextSlide()">Next →</button>
+  </div>
+</div>
+
+<script>
+var cur = 0;
+var scriptOn = true;
+var viewMode = 'presenter';
+
+var scripts = [
+`👋 SCRIPT — Welcome & Introduction
 
 Introduce yourself first:
 
@@ -15,25 +188,8 @@ My role is to guide you through this process, keep you informed every step of th
 Today I just want to take about 5 to 10 minutes of your time to walk you through exactly how your program works, what to expect, and what we'll need from you to get started.
 
 Does that sound good?"`,
-    clientContent: (
-      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',textAlign:'center',padding:'2rem',background:'#fff'}}>
-        <div style={{marginBottom:'1.5rem'}}>
-          <span style={{fontSize:'2rem',fontWeight:900,color:'#D4940A',letterSpacing:'0.04em'}}>WE</span>
-          <span style={{fontSize:'2rem',fontWeight:900,color:'#1a1a1a',letterSpacing:'0.04em'}}> MANAGEMENT SERVICES</span>
-        </div>
-        <div style={{fontSize:'2.5rem',marginBottom:'0.75rem'}}>🌟</div>
-        <h1 style={{fontSize:'2.2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'0.75rem'}}>Welcome Aboard!</h1>
-        <p style={{fontSize:'1.1rem',color:'#6b7280',marginBottom:'1.5rem'}}>We're so excited to have you with us.</p>
-        <div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1.25rem 2.5rem'}}>
-          <p style={{fontSize:'1.35rem',fontWeight:700,color:'#92400e'}}>Your 12-Month Credit Repair Program</p>
-          <p style={{color:'#9ca3af',marginTop:'.4rem',fontSize:'0.95rem'}}>Let's walk you through everything you need to know.</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 1,
-    script: `📋 SCRIPT — Program Overview
+
+`📋 SCRIPT — Program Overview
 
 "So here's the big picture of what you've purchased:
 
@@ -41,29 +197,10 @@ Does that sound good?"`,
 ✅ During those 12 months, we will send up to 11 rounds of dispute letters to the credit bureaus on your behalf.
 
 Now — I want to be clear about the '11 rounds' number. That's the maximum you can receive assuming everything goes smoothly with your credit monitoring. If any credit monitoring issues come up along the way, that may affect the timing or number of rounds. We'll always keep you informed if that happens."`,
-    clientContent: (
-      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'2rem',textAlign:'center'}}>Your Program at a Glance</h2>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'1.5rem',width:'100%',maxWidth:'700px'}}>
-          {[{icon:'📅',label:'Duration',value:'12 Months'},{icon:'📬',label:'Total Rounds',value:'Up to 11'},{icon:'🏛️',label:'Letters Sent To',value:'Credit Bureaus'}].map((item,i)=>(
-            <div key={i} style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1.5rem',textAlign:'center'}}>
-              <div style={{fontSize:'2.5rem',marginBottom:'.75rem'}}>{item.icon}</div>
-              <p style={{color:'#9ca3af',fontSize:'.75rem',fontWeight:600,textTransform:'uppercase',letterSpacing:'.05em'}}>{item.label}</p>
-              <p style={{fontSize:'1.5rem',fontWeight:800,color:'#92400e',marginTop:'.25rem'}}>{item.value}</p>
-            </div>
-          ))}
-        </div>
-        <div style={{marginTop:'2rem',background:'#fef9c3',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'1rem 2rem',textAlign:'center',maxWidth:'600px'}}>
-          <p style={{color:'#92400e',fontWeight:500,fontSize:'.9rem'}}>⚠️ Up to 11 rounds assumes no credit monitoring issues arise during your program.</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 2,
-    script: `🔄 SCRIPT — How the Process Works
 
-"Let me walk you through exactly how each round works so you know what to expect:
+`🔄 SCRIPT — How the Process Works
+
+"Let me walk you through exactly how each round works:
 
 1. 📤 We prepare and send your dispute letters to the credit bureaus on your behalf.
 
@@ -76,156 +213,51 @@ Now — I want to be clear about the '11 rounds' number. That's the maximum you 
 5. 📊 Once we have the bureau's response, we'll send you a Progress Report and launch the next round of letters.
 
 Any questions on that cycle before we move on?"`,
-    clientContent: (
-      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1.5rem',textAlign:'center'}}>How Each Round Works</h2>
-        <div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'580px'}}>
-          {[
-            {step:'1',icon:'📤',title:'We Send Your Dispute Letters',desc:'Letters are sent to the credit bureaus on your behalf.'},
-            {step:'2',icon:'⏳',title:'Bureau Has 30–35 Days to Respond',desc:'By law, bureaus must investigate and respond within this window.'},
-            {step:'3',icon:'📬',title:'You Receive a Response',desc:'The bureau will respond via email or physical mail.'},
-            {step:'4',icon:'🔐',title:'Upload to Your Secure Portal',desc:"Upload the bureau response to your client portal — we'll review it and respond on your behalf."},
-            {step:'5',icon:'📊',title:'Progress Report & Next Round',desc:"We'll send your progress report and launch the next round!"},
-          ].map((item,i)=>(
-            <div key={i} style={{display:'flex',alignItems:'flex-start',gap:'1rem',background:'#fff',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'1rem 1.25rem',boxShadow:'0 1px 3px rgba(0,0,0,0.06)'}}>
-              <div style={{background:'#D4940A',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:700,fontSize:'.85rem',flexShrink:0,marginTop:'2px'}}>{item.step}</div>
-              <div style={{fontSize:'1.5rem',flexShrink:0}}>{item.icon}</div>
-              <div>
-                <p style={{fontWeight:700,color:'#92400e',fontSize:'.95rem'}}>{item.title}</p>
-                <p style={{color:'#9ca3af',fontSize:'.82rem',marginTop:'2px'}}>{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 3,
-    script: `📧 SCRIPT — Email Confirmation
+
+`📧 SCRIPT — Email Confirmation
 
 "Before we go any further, I want to make sure you received a couple of important emails from us.
 
-Can you take a quick look in your inbox — and also check your spam or junk folder just in case?
-
-You should have received TWO emails:
+Can you check your inbox — and also your spam or junk folder just in case?
 
 📧 Email #1 — Portal Activation
-After you completed your onboarding form, you should have received an email with a link to ACTIVATE your client portal. You'll need to click that link to set up your portal access.
+After you completed your onboarding form, you should have received an email with a link to ACTIVATE your client portal.
 
 📧 Email #2 — Your Login Details
-Once you activated your portal, a second email was sent containing your login credentials and a direct button to access the portal.
+Once you activated your portal, a second email was sent with your login credentials and a direct button to access the portal.
 
 [PAUSE — give them a moment to check]
 
-Did you receive both emails and activate your portal? … Great!
+Did you receive both and activate your portal? … Great!
 
-If not, no worries — I'm going to resend the activation link to you right now.
+If not, no worries — I'm going to resend the activation link right now.
 
-Please make sure to log in and complete the required steps as soon as possible, because we cannot start your first round until that's done."`,
-    clientContent: (
-      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'1.5rem',background:'#fff'}}>
-        <h2 style={{fontSize:'1.8rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1rem',textAlign:'center'}}>Check Your Inbox 📬</h2>
-        <p style={{color:'#6b7280',marginBottom:'1.25rem',fontSize:'0.95rem',textAlign:'center',maxWidth:'560px'}}>You should have received <strong>2 emails</strong> from WE Management Services:</p>
-        <div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'620px'}}>
-          {/* Email 1 */}
-          <div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',overflow:'hidden'}}>
-            <div style={{background:'#D4940A',padding:'.5rem 1rem',display:'flex',alignItems:'center',gap:'.5rem'}}>
-              <span style={{background:'#fff',color:'#D4940A',fontWeight:800,fontSize:'.72rem',padding:'.15rem .5rem',borderRadius:'.3rem'}}>STEP 1</span>
-              <span style={{color:'#fff',fontWeight:700,fontSize:'.82rem'}}>📧 Portal Activation Email</span>
-            </div>
-            <div style={{padding:'1rem 1.25rem'}}>
-              <p style={{fontWeight:700,color:'#92400e',fontSize:'.9rem',marginBottom:'.2rem'}}>Subject: Activate Your WE Management Client Portal</p>
-              <p style={{color:'#6b7280',fontSize:'.8rem',marginBottom:'.5rem'}}>From: WE Management Services</p>
-              <p style={{color:'#374151',fontSize:'.82rem'}}>Sent after you completed your onboarding form. Contains your <strong>portal activation link</strong> to get your account set up.</p>
-              <div style={{marginTop:'.75rem',display:'inline-block',background:'#D4940A',color:'#fff',borderRadius:'.5rem',padding:'.35rem .9rem',fontSize:'.78rem',fontWeight:700}}>Activate My Portal →</div>
-            </div>
-          </div>
-          {/* Email 2 */}
-          <div style={{background:'#f0f9ff',border:'2px solid #38bdf8',borderRadius:'1rem',overflow:'hidden'}}>
-            <div style={{background:'#0ea5e9',padding:'.5rem 1rem',display:'flex',alignItems:'center',gap:'.5rem'}}>
-              <span style={{background:'#fff',color:'#0ea5e9',fontWeight:800,fontSize:'.72rem',padding:'.15rem .5rem',borderRadius:'.3rem'}}>STEP 2</span>
-              <span style={{color:'#fff',fontWeight:700,fontSize:'.82rem'}}>📧 Login Details & Portal Access</span>
-            </div>
-            <div style={{padding:'1rem 1.25rem'}}>
-              <p style={{fontWeight:700,color:'#0369a1',fontSize:'.9rem',marginBottom:'.2rem'}}>Subject: Your Account with WE Management Services is ready</p>
-              <p style={{color:'#6b7280',fontSize:'.8rem',marginBottom:'.5rem'}}>From: clientcare@wemanagementservices.com</p>
-              <p style={{color:'#374151',fontSize:'.82rem'}}>Sent after activation. Contains your <strong>login email, password,</strong> and a direct button to access your portal.</p>
-              <div style={{marginTop:'.75rem',display:'inline-block',background:'#0ea5e9',color:'#fff',borderRadius:'.5rem',padding:'.35rem .9rem',fontSize:'.78rem',fontWeight:700}}>Portal Login →</div>
-            </div>
-          </div>
-        </div>
-        <div style={{marginTop:'1rem',background:'#fef2f2',border:'1px solid #fecaca',borderRadius:'.75rem',padding:'.75rem 1.5rem',textAlign:'center',maxWidth:'620px'}}>
-          <p style={{color:'#b91c1c',fontSize:'.82rem',fontWeight:500}}>📌 Can't find them? Check your spam/junk folder — or let us know and we'll resend right away!</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 4,
-    script: `📁 SCRIPT — Required Documents
+Please log in and complete the required steps as soon as possible — we cannot start your first round until that's done."`,
 
-"Now let's talk about the documents we need from you.
+`📁 SCRIPT — Required Documents
 
-Once you log into your portal, you'll need to complete the following:
+"Now let's talk about the documents we need.
+
+Once you log into your portal, please complete:
 
 Step 1 — Sign the Customer Agreement inside the portal dashboard.
 
 Step 2 — Upload your required documents:
 
-1. 🪪 A government-issued photo ID — like your driver's license or passport.
-2. 📄 Proof of your current address — a utility bill, bank statement, or lease agreement dated within the last 90 days works great.
+1. 🪪 A government-issued photo ID — driver's license or passport.
+2. 📄 Proof of your current address — utility bill, bank statement, or lease dated within the last 90 days.
 3. 🔒 An Affidavit of Identity
 
 --- IF CLIENT ASKS ABOUT THE AFFIDAVIT ---
 
-"Great question! The Affidavit of Identity is actually for YOUR protection. When we submit disputes to the credit bureaus, we use it to verify your identity and to freeze your data at the bureau level. This prevents anyone — including the bureaus — from making unauthorized changes to your credit file while we are actively working on it. It is a standard protective measure we use for all of our clients to keep their information safe."
+"Great question! The Affidavit of Identity is for YOUR protection. We use it to verify your identity and freeze your data at the bureau level. This prevents anyone — including the bureaus — from making unauthorized changes to your credit file while we're actively working on it. It's a standard protective measure for all of our clients."
 
 [Continue]
-"Once everything is signed and uploaded, we will review it and send out your first round of dispute letters shortly after."`,
-    clientContent: (
-      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}>
-        <h2 style={{fontSize:'1.9rem',fontWeight:800,color:'#1a1a1a',marginBottom:'0.75rem',textAlign:'center'}}>📁 Complete Your Portal Steps</h2>
-        <p style={{color:'#6b7280',marginBottom:'1.25rem',textAlign:'center',maxWidth:'500px',fontSize:'0.9rem'}}>After logging into your client portal, please complete the following:</p>
-        <div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'560px'}}>
-          <div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1rem 1.25rem',display:'flex',gap:'1rem',alignItems:'center'}}>
-            <div style={{background:'#D4940A',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,flexShrink:0}}>1</div>
-            <div>
-              <p style={{fontWeight:700,color:'#92400e'}}>✍️ Sign Your Customer Agreement</p>
-              <p style={{color:'#9ca3af',fontSize:'.82rem'}}>Review and sign the Terms of Service inside your portal dashboard.</p>
-            </div>
-          </div>
-          <div style={{background:'#f0fdf4',border:'2px solid #86efac',borderRadius:'1rem',padding:'1rem 1.25rem',display:'flex',gap:'1rem',alignItems:'flex-start'}}>
-            <div style={{background:'#16a34a',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,flexShrink:0,marginTop:'2px'}}>2</div>
-            <div style={{width:'100%'}}>
-              <p style={{fontWeight:700,color:'#166534',marginBottom:'.5rem'}}>📤 Upload Required Documents</p>
-              {[
-                {icon:'🪪',title:'Government-Issued Photo ID',desc:"Driver's license, passport, or state ID"},
-                {icon:'📄',title:'Proof of Address',desc:'Utility bill, bank statement, or lease (within 90 days)'},
-                {icon:'🔒',title:'Affidavit of Identity',desc:'Protects & freezes your data during the dispute process'},
-              ].map((item,i)=>(
-                <div key={i} style={{display:'flex',gap:'.75rem',alignItems:'flex-start',marginBottom:'.5rem'}}>
-                  <span style={{fontSize:'1.2rem'}}>{item.icon}</span>
-                  <div>
-                    <p style={{fontWeight:600,color:'#166534',fontSize:'.85rem'}}>{item.title}</p>
-                    <p style={{color:'#9ca3af',fontSize:'.75rem'}}>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div style={{marginTop:'1rem',background:'#eff6ff',border:'1px solid #bfdbfe',borderRadius:'.75rem',padding:'.75rem 1.5rem',textAlign:'center',maxWidth:'560px'}}>
-          <p style={{color:'#1d4ed8',fontSize:'.82rem'}}>🔐 All documents are securely uploaded through your <strong>client portal</strong>.</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    id: 5,
-    script: `✅ SCRIPT — Wrap-Up
+"Once everything is signed and uploaded, we'll send out your first round of dispute letters shortly."`,
 
-"Alright, you are almost ready to go! Here's a quick recap of your to-do list:
+`✅ SCRIPT — Wrap-Up
+
+"Alright, you are almost ready to go! Quick recap:
 
 1. Log into your client portal using the credentials from your email.
 2. Sign your Customer Agreement inside the portal.
@@ -233,133 +265,194 @@ Step 2 — Upload your required documents:
 4. Keep an eye on your mail AND email for anything from the credit bureaus.
 5. The moment you get something — upload it to your portal right away!
 
-Once we have everything, we'll get your first round of dispute letters out shortly.
+Once we have everything, we'll get your first round out shortly.
 
-Do you have any questions for me before we wrap up?
+Do you have any questions before we wrap up?
 
 [PAUSE for questions]
 
 Amazing! You are in great hands and we are so excited to start this journey with you.
 
-And remember — if you ever need us, you can reach us at:
+Remember — if you ever need us:
 📧 processing@wemanagementservices.com
 📞 (725) 307-1333
 🕘 Monday–Friday, 9 AM – 5 PM Pacific Time
 
-Talk soon! 😊"`,
-    clientContent: (
-      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',textAlign:'center',background:'#fff'}}>
-        <h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1rem'}}>You're Almost Ready to Go! 🚀</h2>
-        <p style={{color:'#6b7280',marginBottom:'1.25rem',maxWidth:'500px',fontSize:'1rem'}}>Here's your action list before we can launch your first round:</p>
-        <div style={{display:'flex',flexDirection:'column',gap:'.65rem',width:'100%',maxWidth:'460px',textAlign:'left',marginBottom:'1.5rem'}}>
-          {[
-            'Log into your client portal',
-            'Sign your Customer Agreement inside the portal',
-            'Upload your required documents through the portal',
-            'Watch for mail or emails from the credit bureaus',
-            'Upload any bureau responses to your portal immediately',
-          ].map((item,i)=>(
-            <div key={i} style={{display:'flex',alignItems:'center',gap:'1rem',background:'#fffbeb',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'.8rem 1.1rem'}}>
-              <div style={{width:'1.75rem',height:'1.75rem',borderRadius:'50%',background:'#D4940A',color:'#fff',fontSize:'.8rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:700,flexShrink:0}}>{i+1}</div>
-              <p style={{color:'#374151',fontSize:'.88rem',fontWeight:500}}>{item}</p>
-            </div>
-          ))}
-        </div>
-        {/* Contact info */}
-        <div style={{background:'#1a1a1a',borderRadius:'1rem',padding:'1rem 2rem',width:'100%',maxWidth:'460px'}}>
-          <p style={{color:'#D4940A',fontWeight:700,fontSize:'.85rem',marginBottom:'.6rem',textTransform:'uppercase',letterSpacing:'.05em'}}>Need Help? Reach Us At:</p>
-          <div style={{display:'flex',flexDirection:'column',gap:'.35rem'}}>
-            <p style={{color:'#fff',fontSize:'.85rem'}}>📧 processing@wemanagementservices.com</p>
-            <p style={{color:'#fff',fontSize:'.85rem'}}>📞 (725) 307-1333</p>
-            <p style={{color:'#9ca3af',fontSize:'.8rem'}}>🕘 Mon–Fri &nbsp;|&nbsp; 9 AM – 5 PM Pacific Time</p>
-          </div>
-        </div>
-      </div>
-    )
-  },
+Talk soon! 😊"`
 ];
 
-export default function Presentation() {
-  const [current, setCurrent] = useState(0);
-  const [showScript, setShowScript] = useState(true);
-  const [view, setView] = useState("presenter");
+var slideHTML = [
+// Slide 1
+`<div class="slide">
+  <div style="margin-bottom:1.5rem">
+    <span style="font-size:2rem;font-weight:900;color:#D4940A">WE</span>
+    <span style="font-size:2rem;font-weight:900;color:#1a1a1a"> MANAGEMENT SERVICES</span>
+  </div>
+  <div style="font-size:2.5rem;margin-bottom:.75rem">🌟</div>
+  <h1>Welcome Aboard!</h1>
+  <p>We're so excited to have you with us.</p>
+  <div class="gold-box">
+    <p>Your 12-Month Credit Repair Program</p>
+    <p class="sub">Let's walk you through everything you need to know.</p>
+  </div>
+</div>`,
 
-  const slide = slides[current];
-  const total = slides.length;
-  const prev = () => setCurrent(c => Math.max(0, c - 1));
-  const next = () => setCurrent(c => Math.min(total - 1, c + 1));
+// Slide 2
+`<div class="slide">
+  <h2>Your Program at a Glance</h2>
+  <div class="card-grid">
+    <div class="card"><div class="icon">📅</div><div class="label">Duration</div><div class="value">12 Months</div></div>
+    <div class="card"><div class="icon">📬</div><div class="label">Total Rounds</div><div class="value">Up to 11</div></div>
+    <div class="card"><div class="icon">🏛️</div><div class="label">Letters Sent To</div><div class="value">Credit Bureaus</div></div>
+  </div>
+  <div class="warn-box"><p>⚠️ Up to 11 rounds assumes no credit monitoring issues arise during your program.</p></div>
+</div>`,
 
-  const NavBar = () => (
-    <div style={{background:'#f9fafb',borderTop:'1px solid #e5e7eb',padding:'1rem 2rem',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-      <button onClick={prev} disabled={current===0} style={{cursor:current===0?'not-allowed':'pointer',border:'none',background:'#D4940A',color:'#fff',padding:'.45rem 1.25rem',borderRadius:'.75rem',fontWeight:700,fontSize:'.9rem',opacity:current===0?.35:1}}>← Back</button>
-      <div style={{display:'flex',gap:'.4rem'}}>
-        {slides.map((_,i)=>(
-          <button key={i} onClick={()=>setCurrent(i)} style={{cursor:'pointer',border:'none',width:'11px',height:'11px',borderRadius:'50%',background:i===current?'#D4940A':'#d1d5db',padding:0}}/>
-        ))}
-      </div>
-      <button onClick={next} disabled={current===total-1} style={{cursor:current===total-1?'not-allowed':'pointer',border:'none',background:'#D4940A',color:'#fff',padding:'.45rem 1.25rem',borderRadius:'.75rem',fontWeight:700,fontSize:'.9rem',opacity:current===total-1?.35:1}}>Next →</button>
-    </div>
-  );
+// Slide 3
+`<div class="slide">
+  <h2 style="margin-bottom:1.5rem">How Each Round Works</h2>
+  <div class="steps">
+    <div class="step-row"><div class="step-num">1</div><div class="step-icon">📤</div><div><div class="step-title">We Send Your Dispute Letters</div><div class="step-desc">Letters are sent to the credit bureaus on your behalf.</div></div></div>
+    <div class="step-row"><div class="step-num">2</div><div class="step-icon">⏳</div><div><div class="step-title">Bureau Has 30–35 Days to Respond</div><div class="step-desc">By law, bureaus must investigate and respond within this window.</div></div></div>
+    <div class="step-row"><div class="step-num">3</div><div class="step-icon">📬</div><div><div class="step-title">You Receive a Response</div><div class="step-desc">The bureau will respond via email or physical mail.</div></div></div>
+    <div class="step-row"><div class="step-num">4</div><div class="step-icon">🔐</div><div><div class="step-title">Upload to Your Secure Portal</div><div class="step-desc">Upload the bureau response — we'll review it and respond on your behalf.</div></div></div>
+    <div class="step-row"><div class="step-num">5</div><div class="step-icon">📊</div><div><div class="step-title">Progress Report & Next Round</div><div class="step-desc">We'll send your progress report and launch the next round!</div></div></div>
+  </div>
+</div>`,
 
-  const CompanyName = ({dark}) => (
-    <div style={{display:'flex',alignItems:'baseline',gap:'5px'}}>
-      <span style={{fontSize:'1.15rem',fontWeight:900,color:'#D4940A'}}>WE</span>
-      <span style={{fontSize:'1.15rem',fontWeight:900,color: dark?'#fff':'#1a1a1a'}}>MANAGEMENT SERVICES</span>
-    </div>
-  );
-
-  if (view === "client") {
-    return (
-      <div style={{minHeight:'100vh',background:'#fff',display:'flex',flexDirection:'column',fontFamily:'Segoe UI,Inter,sans-serif'}}>
-        <div style={{background:'#1a1a1a',color:'#fff',padding:'.75rem 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-          <CompanyName dark/>
-          <div style={{display:'flex',alignItems:'center',gap:'1rem'}}>
-            <span style={{color:'#9ca3af',fontSize:'.85rem'}}>Slide {current+1} of {total}</span>
-            <button onClick={()=>setView('presenter')} style={{cursor:'pointer',border:'none',background:'#D4940A',color:'#fff',fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}>Presenter View</button>
-          </div>
-        </div>
-        <div style={{flex:1,minHeight:'500px'}}>{slide.clientContent}</div>
-        <NavBar/>
-      </div>
-    );
-  }
-
-  return (
-    <div style={{minHeight:'100vh',background:'#111827',display:'flex',flexDirection:'column',fontFamily:'Segoe UI,Inter,sans-serif'}}>
-      <div style={{background:'#1f2937',color:'#fff',padding:'.75rem 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between',borderBottom:'1px solid #374151'}}>
-        <div style={{display:'flex',alignItems:'center',gap:'.75rem'}}>
-          <span style={{background:'#D4940A',color:'#fff',fontSize:'.72rem',fontWeight:700,padding:'.25rem .6rem',borderRadius:'.4rem'}}>PRESENTER</span>
-          <CompanyName dark/>
-        </div>
-        <div style={{display:'flex',alignItems:'center',gap:'.75rem'}}>
-          <button onClick={()=>setShowScript(s=>!s)} style={{cursor:'pointer',background:showScript?'#facc15':'transparent',color:showScript?'#111827':'#d1d5db',border:`1px solid ${showScript?'#facc15':'#6b7280'}`,fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}>
-            {showScript?'📝 Script ON':'📝 Script OFF'}
-          </button>
-          <button onClick={()=>setView('client')} style={{cursor:'pointer',border:'none',background:'#D4940A',color:'#fff',fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}>👁️ Client View</button>
-        </div>
-      </div>
-
-      <div style={{display:'flex',flex:1,minHeight:'600px'}}>
-        <div style={{background:'#fff',display:'flex',flexDirection:'column',width:showScript?'60%':'100%',transition:'width .3s'}}>
-          <div style={{background:'#fffbeb',borderBottom:'1px solid #fde68a',padding:'.5rem 1rem',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-            <span style={{fontSize:'.72rem',color:'#92400e',fontWeight:700,textTransform:'uppercase',letterSpacing:'.05em'}}>Client View Preview</span>
-            <span style={{fontSize:'.75rem',color:'#9ca3af'}}>Slide {current+1} / {total}</span>
-          </div>
-          <div style={{flex:1,overflow:'auto',minHeight:'400px'}}>{slide.clientContent}</div>
-          <NavBar/>
-        </div>
-
-        {showScript && (
-          <div style={{background:'#111827',borderLeft:'1px solid #374151',display:'flex',flexDirection:'column',width:'40%'}}>
-            <div style={{background:'#facc15',padding:'.5rem 1rem'}}>
-              <span style={{color:'#111827',fontSize:'.72rem',fontWeight:700,textTransform:'uppercase',letterSpacing:'.05em'}}>📝 Your Script — Clients Cannot See This</span>
-            </div>
-            <div style={{flex:1,overflow:'auto',padding:'1.25rem'}}>
-              <pre style={{color:'#ffffff',fontSize:'.82rem',lineHeight:'1.7',whiteSpace:'pre-wrap',fontFamily:'Courier New,monospace'}}>{slide.script}</pre>
-            </div>
-          </div>
-        )}
+// Slide 4
+`<div class="slide">
+  <h2 style="margin-bottom:1rem;font-size:1.8rem">Check Your Inbox 📬</h2>
+  <p style="margin-bottom:1.25rem;font-size:.95rem;max-width:560px">You should have received <strong>2 emails</strong> from WE Management Services:</p>
+  <div class="email-cards">
+    <div class="email-card ec-gold">
+      <div class="ec-header"><span class="ec-badge">STEP 1</span><span class="ec-title">📧 Portal Activation Email</span></div>
+      <div class="ec-body">
+        <div class="ec-subject">Subject: Activate Your WE Management Client Portal</div>
+        <div class="ec-from">From: WE Management Services</div>
+        <div class="ec-desc">Sent after you completed your onboarding form. Contains your <strong>portal activation link</strong> to get your account set up.</div>
+        <div class="ec-btn" style="background:#D4940A">Activate My Portal →</div>
       </div>
     </div>
-  );
+    <div class="email-card ec-blue">
+      <div class="ec-header"><span class="ec-badge">STEP 2</span><span class="ec-title">📧 Login Details & Portal Access</span></div>
+      <div class="ec-body">
+        <div class="ec-subject">Subject: Your Account with WE Management Services is ready</div>
+        <div class="ec-from">From: clientcare@wemanagementservices.com</div>
+        <div class="ec-desc">Sent after activation. Contains your <strong>login email, password,</strong> and a direct button to access your portal.</div>
+        <div class="ec-btn" style="background:#0ea5e9">Portal Login →</div>
+      </div>
+    </div>
+  </div>
+  <div class="err-box"><p>📌 Can't find them? Check your spam/junk folder — or let us know and we'll resend right away!</p></div>
+</div>`,
+
+// Slide 5
+`<div class="slide">
+  <h2 style="margin-bottom:.75rem;font-size:1.9rem">📁 Complete Your Portal Steps</h2>
+  <p style="margin-bottom:1.25rem;font-size:.9rem;max-width:500px">After logging into your client portal, please complete the following:</p>
+  <div class="portal-steps">
+    <div class="portal-step ps-gold">
+      <div class="ps-num">1</div>
+      <div><div class="ps-title">✍️ Sign Your Customer Agreement</div><div class="ps-desc">Review and sign the Terms of Service inside your portal dashboard.</div></div>
+    </div>
+    <div class="portal-step ps-green">
+      <div class="ps-num">2</div>
+      <div>
+        <div class="ps-title">📤 Upload Required Documents</div>
+        <div class="doc-item"><span class="doc-icon">🪪</span><div><div class="doc-title">Government-Issued Photo ID</div><div class="doc-desc">Driver's license, passport, or state ID</div></div></div>
+        <div class="doc-item"><span class="doc-icon">📄</span><div><div class="doc-title">Proof of Address</div><div class="doc-desc">Utility bill, bank statement, or lease (within 90 days)</div></div></div>
+        <div class="doc-item"><span class="doc-icon">🔒</span><div><div class="doc-title">Affidavit of Identity</div><div class="doc-desc">Protects & freezes your data during the dispute process</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="info-box"><p>🔐 All documents are securely uploaded through your <strong>client portal</strong>.</p></div>
+</div>`,
+
+// Slide 6
+`<div class="slide">
+  <h2 style="margin-bottom:1rem">You're Almost Ready to Go! 🚀</h2>
+  <p style="margin-bottom:1.25rem;max-width:500px;font-size:1rem">Here's your action list before we can launch your first round:</p>
+  <div class="checklist">
+    <div class="check-item"><div class="check-num">1</div><div class="check-text">Log into your client portal</div></div>
+    <div class="check-item"><div class="check-num">2</div><div class="check-text">Sign your Customer Agreement inside the portal</div></div>
+    <div class="check-item"><div class="check-num">3</div><div class="check-text">Upload your required documents through the portal</div></div>
+    <div class="check-item"><div class="check-num">4</div><div class="check-text">Watch for mail or emails from the credit bureaus</div></div>
+    <div class="check-item"><div class="check-num">5</div><div class="check-text">Upload any bureau responses to your portal immediately</div></div>
+  </div>
+  <div class="contact-box">
+    <div class="ct">Need Help? Reach Us At:</div>
+    <p>📧 processing@wemanagementservices.com</p>
+    <p>📞 (725) 307-1333</p>
+    <p class="hours">🕘 Mon–Fri &nbsp;|&nbsp; 9 AM – 5 PM Pacific Time</p>
+  </div>
+</div>`
+];
+
+function renderSlide(){
+  document.getElementById('slide-content').innerHTML = slideHTML[cur];
+  document.getElementById('client-content').innerHTML = slideHTML[cur];
+  document.getElementById('script-text').textContent = scripts[cur];
+  document.getElementById('slide-counter-p').textContent = 'Slide '+(cur+1)+' / '+slideHTML.length;
+  document.getElementById('client-counter').textContent = 'Slide '+(cur+1)+' of '+slideHTML.length;
+  document.getElementById('prev-btn').disabled = cur === 0;
+  document.getElementById('next-btn').disabled = cur === slideHTML.length-1;
+  document.getElementById('prev-btn-c').disabled = cur === 0;
+  document.getElementById('next-btn-c').disabled = cur === slideHTML.length-1;
+  buildDots();
 }
+
+function buildDots(){
+  ['dots-p','dots-c'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.innerHTML = '';
+    for(var i=0;i<slideHTML.length;i++){
+      var d = document.createElement('button');
+      d.className = 'dot'+(i===cur?' active':'');
+      d.setAttribute('data-i',i);
+      d.onclick = function(){cur=parseInt(this.getAttribute('data-i'));renderSlide();};
+      el.appendChild(d);
+    }
+  });
+}
+
+function nextSlide(){if(cur<slideHTML.length-1){cur++;renderSlide();}}
+function prevSlide(){if(cur>0){cur--;renderSlide();}}
+
+function toggleScript(){
+  scriptOn = !scriptOn;
+  var sp = document.getElementById('script-panel');
+  var sl = document.getElementById('slide-panel');
+  var btn = document.getElementById('toggleScript');
+  if(scriptOn){
+    sp.style.display='flex';
+    sl.style.width='60%';
+    btn.textContent='📝 Script ON';
+    btn.className='btn btn-yellow';
+  } else {
+    sp.style.display='none';
+    sl.style.width='100%';
+    btn.textContent='📝 Script OFF';
+    btn.className='btn btn-outline';
+  }
+}
+
+function switchView(v){
+  viewMode = v;
+  if(v==='client'){
+    document.getElementById('topbar-presenter').style.display='none';
+    document.getElementById('presenter-wrap').style.display='none';
+    document.getElementById('topbar-client').style.display='block';
+    document.getElementById('client-wrap').style.display='flex';
+  } else {
+    document.getElementById('topbar-presenter').style.display='flex';
+    document.getElementById('presenter-wrap').style.display='flex';
+    document.getElementById('topbar-client').style.display='none';
+    document.getElementById('client-wrap').style.display='none';
+  }
+}
+
+renderSlide();
+</script>
+</body>
+</html>
