@@ -1,381 +1,273 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #f7f6ef; -webkit-text-stroke: #f7f6ef}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #f7f6ef; -webkit-text-stroke: #f7f6ef; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WE Management Services – Credit Repair Onboarding</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Segoe UI',Inter,sans-serif;background:#111827}button{cursor:pointer;border:none;font-family:inherit}button:disabled{opacity:.35;cursor:not-allowed}pre{font-family:'Courier New',monospace}</style>
 </head>
 <body>
-<p class="p1"><span class="s1">import { useState } from "react";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">const slides = [</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>id: 0,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>script: `👋 SCRIPT — Welcome &amp; Introduction</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Introduce yourself first:</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">"Hi [Client Name]! My name is [Your Name] and I am your dedicated Credit Repair Specialist here at WE Management Services. I'll be your main point of contact throughout your entire 12-month program — so if you ever have questions, concerns, or updates, I'm your go-to person.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">My role is to guide you through this process, keep you informed every step of the way, and make sure we are working as a team to help you reach your credit goals. You are in great hands!</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Today I just want to take about 5 to 10 minutes of your time to walk you through exactly how your program works, what to expect, and what we'll need from you to get started.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Does that sound good?"`,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clientContent: (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',textAlign:'center',padding:'2rem',background:'#fff'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{marginBottom:'1.5rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span style={{fontSize:'2rem',fontWeight:900,color:'#D4940A',letterSpacing:'0.04em'}}&gt;WE&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span style={{fontSize:'2rem',fontWeight:900,color:'#1a1a1a',letterSpacing:'0.04em'}}&gt; MANAGEMENT SERVICES&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{fontSize:'2.5rem',marginBottom:'0.75rem'}}&gt;🌟&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1 style={{fontSize:'2.2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'0.75rem'}}&gt;Welcome Aboard!&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style={{fontSize:'1.1rem',color:'#6b7280',marginBottom:'1.5rem'}}&gt;We're so excited to have you with us.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1.25rem 2.5rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p style={{fontSize:'1.35rem',fontWeight:700,color:'#92400e'}}&gt;Your 12-Month Credit Repair Program&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p style={{color:'#9ca3af',marginTop:'.4rem',fontSize:'0.95rem'}}&gt;Let's walk you through everything you need to know.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>id: 1,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>script: `📋 SCRIPT — Program Overview</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">"So here's the big picture of what you've purchased:</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">✅ You have 12 months of credit repair service.</span></p>
-<p class="p1"><span class="s1">✅ During those 12 months, we will send up to 11 rounds of dispute letters to the credit bureaus on your behalf.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Now — I want to be clear about the '11 rounds' number. That's the maximum you can receive assuming everything goes smoothly with your credit monitoring. If any credit monitoring issues come up along the way, that may affect the timing or number of rounds. We'll always keep you informed if that happens."`,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clientContent: (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'2rem',textAlign:'center'}}&gt;Your Program at a Glance&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'1.5rem',width:'100%',maxWidth:'700px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{[{icon:'📅',label:'Duration',value:'12 Months'},{icon:'📬',label:'Total Rounds',value:'Up to 11'},{icon:'🏛️',label:'Letters Sent To',value:'Credit Bureaus'}].map((item,i)=&gt;(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div key={i} style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1.5rem',textAlign:'center'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div style={{fontSize:'2.5rem',marginBottom:'.75rem'}}&gt;{item.icon}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{color:'#9ca3af',fontSize:'.75rem',fontWeight:600,textTransform:'uppercase',letterSpacing:'.05em'}}&gt;{item.label}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{fontSize:'1.5rem',fontWeight:800,color:'#92400e',marginTop:'.25rem'}}&gt;{item.value}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{marginTop:'2rem',background:'#fef9c3',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'1rem 2rem',textAlign:'center',maxWidth:'600px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p style={{color:'#92400e',fontWeight:500,fontSize:'.9rem'}}&gt;⚠️ Up to 11 rounds assumes no credit monitoring issues arise during your program.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>id: 2,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>script: `🔄 SCRIPT — How the Process Works</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">"Let me walk you through exactly how each round works so you know what to expect:</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">1. 📤 We prepare and send your dispute letters to the credit bureaus on your behalf.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">3. 📬 The bureaus have 30 to 35 days to investigate. They will contact YOU directly — either by email or by physical mail.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">4. 🚨 This is important: as soon as you receive ANYTHING from the bureaus, please upload it to your secure client portal right away. Once we have a copy, we will review it and respond on your behalf.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">2. ⏳ While we wait — the bureaus are legally required to investigate within that 30–35 day window.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">5. 📊 Once we have the bureau's response, we'll send you a Progress Report and launch the next round of letters.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Any questions on that cycle before we move on?"`,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clientContent: (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1.5rem',textAlign:'center'}}&gt;How Each Round Works&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'580px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{[</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{step:'1',icon:'📤',title:'We Send Your Dispute Letters',desc:'Letters are sent to the credit bureaus on your behalf.'},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{step:'2',icon:'⏳',title:'Bureau Has 30–35 Days to Respond',desc:'By law, bureaus must investigate and respond within this window.'},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{step:'3',icon:'📬',title:'You Receive a Response',desc:'The bureau will respond via email or physical mail.'},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{step:'4',icon:'🔐',title:'Upload to Your Secure Portal',desc:"Upload the bureau response to your client portal — we'll review it and respond on your behalf."},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{step:'5',icon:'📊',title:'Progress Report &amp; Next Round',desc:"We'll send your progress report and launch the next round!"},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>].map((item,i)=&gt;(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div key={i} style={{display:'flex',alignItems:'flex-start',gap:'1rem',background:'#fff',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'1rem 1.25rem',boxShadow:'0 1px 3px rgba(0,0,0,0.06)'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div style={{background:'#D4940A',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:700,fontSize:'.85rem',flexShrink:0,marginTop:'2px'}}&gt;{item.step}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div style={{fontSize:'1.5rem',flexShrink:0}}&gt;{item.icon}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p style={{fontWeight:700,color:'#92400e',fontSize:'.95rem'}}&gt;{item.title}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p style={{color:'#9ca3af',fontSize:'.82rem',marginTop:'2px'}}&gt;{item.desc}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>id: 3,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>script: `📧 SCRIPT — Email Confirmation</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">"Before we go any further, I want to make sure you received a couple of important emails from us.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Can you take a quick look in your inbox — and also check your spam or junk folder just in case?</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">You should have received TWO emails:</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">📧 Email #1 — Portal Activation</span></p>
-<p class="p1"><span class="s1">After you completed your onboarding form, you should have received an email with a link to ACTIVATE your client portal. You'll need to click that link to set up your portal access.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">📧 Email #2 — Your Login Details</span></p>
-<p class="p1"><span class="s1">Once you activated your portal, a second email was sent containing your login credentials and a direct button to access the portal.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">[PAUSE — give them a moment to check]</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Did you receive both emails and activate your portal? … Great!</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">If not, no worries — I'm going to resend the activation link to you right now.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Please make sure to log in and complete the required steps as soon as possible, because we cannot start your first round until that's done."`,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clientContent: (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'1.5rem',background:'#fff'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 style={{fontSize:'1.8rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1rem',textAlign:'center'}}&gt;Check Your Inbox 📬&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style={{color:'#6b7280',marginBottom:'1.25rem',fontSize:'0.95rem',textAlign:'center',maxWidth:'560px'}}&gt;You should have received &lt;strong&gt;2 emails&lt;/strong&gt; from WE Management Services:&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'620px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{/* Email 1 */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',overflow:'hidden'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{background:'#D4940A',padding:'.5rem 1rem',display:'flex',alignItems:'center',gap:'.5rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span style={{background:'#fff',color:'#D4940A',fontWeight:800,fontSize:'.72rem',padding:'.15rem .5rem',borderRadius:'.3rem'}}&gt;STEP 1&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span style={{color:'#fff',fontWeight:700,fontSize:'.82rem'}}&gt;📧 Portal Activation Email&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{padding:'1rem 1.25rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{fontWeight:700,color:'#92400e',fontSize:'.9rem',marginBottom:'.2rem'}}&gt;Subject: Activate Your WE Management Client Portal&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{color:'#6b7280',fontSize:'.8rem',marginBottom:'.5rem'}}&gt;From: WE Management Services&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{color:'#374151',fontSize:'.82rem'}}&gt;Sent after you completed your onboarding form. Contains your &lt;strong&gt;portal activation link&lt;/strong&gt; to get your account set up.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div style={{marginTop:'.75rem',display:'inline-block',background:'#D4940A',color:'#fff',borderRadius:'.5rem',padding:'.35rem .9rem',fontSize:'.78rem',fontWeight:700}}&gt;Activate My Portal →&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{/* Email 2 */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{background:'#f0f9ff',border:'2px solid #38bdf8',borderRadius:'1rem',overflow:'hidden'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{background:'#0ea5e9',padding:'.5rem 1rem',display:'flex',alignItems:'center',gap:'.5rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span style={{background:'#fff',color:'#0ea5e9',fontWeight:800,fontSize:'.72rem',padding:'.15rem .5rem',borderRadius:'.3rem'}}&gt;STEP 2&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span style={{color:'#fff',fontWeight:700,fontSize:'.82rem'}}&gt;📧 Login Details &amp; Portal Access&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{padding:'1rem 1.25rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{fontWeight:700,color:'#0369a1',fontSize:'.9rem',marginBottom:'.2rem'}}&gt;Subject: Your Account with WE Management Services is ready&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{color:'#6b7280',fontSize:'.8rem',marginBottom:'.5rem'}}&gt;From: clientcare@wemanagementservices.com&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{color:'#374151',fontSize:'.82rem'}}&gt;Sent after activation. Contains your &lt;strong&gt;login email, password,&lt;/strong&gt; and a direct button to access your portal.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div style={{marginTop:'.75rem',display:'inline-block',background:'#0ea5e9',color:'#fff',borderRadius:'.5rem',padding:'.35rem .9rem',fontSize:'.78rem',fontWeight:700}}&gt;Portal Login →&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{marginTop:'1rem',background:'#fef2f2',border:'1px solid #fecaca',borderRadius:'.75rem',padding:'.75rem 1.5rem',textAlign:'center',maxWidth:'620px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p style={{color:'#b91c1c',fontSize:'.82rem',fontWeight:500}}&gt;📌 Can't find them? Check your spam/junk folder — or let us know and we'll resend right away!&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>id: 4,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>script: `📁 SCRIPT — Required Documents</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">"Now let's talk about the documents we need from you.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Once you log into your portal, you'll need to complete the following:</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Step 1 — Sign the Customer Agreement inside the portal dashboard.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Step 2 — Upload your required documents:</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">1. 🪪 A government-issued photo ID — like your driver's license or passport.</span></p>
-<p class="p1"><span class="s1">2. 📄 Proof of your current address — a utility bill, bank statement, or lease agreement dated within the last 90 days works great.</span></p>
-<p class="p1"><span class="s1">3. 🔒 An Affidavit of Identity</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">--- IF CLIENT ASKS ABOUT THE AFFIDAVIT ---</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">"Great question! The Affidavit of Identity is actually for YOUR protection. When we submit disputes to the credit bureaus, we use it to verify your identity and to freeze your data at the bureau level. This prevents anyone — including the bureaus — from making unauthorized changes to your credit file while we are actively working on it. It is a standard protective measure we use for all of our clients to keep their information safe."</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">[Continue]</span></p>
-<p class="p1"><span class="s1">"Once everything is signed and uploaded, we will review it and send out your first round of dispute letters shortly after."`,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clientContent: (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 style={{fontSize:'1.9rem',fontWeight:800,color:'#1a1a1a',marginBottom:'0.75rem',textAlign:'center'}}&gt;📁 Complete Your Portal Steps&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style={{color:'#6b7280',marginBottom:'1.25rem',textAlign:'center',maxWidth:'500px',fontSize:'0.9rem'}}&gt;After logging into your client portal, please complete the following:&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'560px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1rem 1.25rem',display:'flex',gap:'1rem',alignItems:'center'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{background:'#D4940A',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,flexShrink:0}}&gt;1&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{fontWeight:700,color:'#92400e'}}&gt;✍️ Sign Your Customer Agreement&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{color:'#9ca3af',fontSize:'.82rem'}}&gt;Review and sign the Terms of Service inside your portal dashboard.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{background:'#f0fdf4',border:'2px solid #86efac',borderRadius:'1rem',padding:'1rem 1.25rem',display:'flex',gap:'1rem',alignItems:'flex-start'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{background:'#16a34a',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,flexShrink:0,marginTop:'2px'}}&gt;2&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{width:'100%'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{fontWeight:700,color:'#166534',marginBottom:'.5rem'}}&gt;📤 Upload Required Documents&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>{[</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{icon:'🪪',title:'Government-Issued Photo ID',desc:"Driver's license, passport, or state ID"},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{icon:'📄',title:'Proof of Address',desc:'Utility bill, bank statement, or lease (within 90 days)'},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{icon:'🔒',title:'Affidavit of Identity',desc:'Protects &amp; freezes your data during the dispute process'},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>].map((item,i)=&gt;(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div key={i} style={{display:'flex',gap:'.75rem',alignItems:'flex-start',marginBottom:'.5rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;span style={{fontSize:'1.2rem'}}&gt;{item.icon}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p style={{fontWeight:600,color:'#166534',fontSize:'.85rem'}}&gt;{item.title}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;p style={{color:'#9ca3af',fontSize:'.75rem'}}&gt;{item.desc}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{marginTop:'1rem',background:'#eff6ff',border:'1px solid #bfdbfe',borderRadius:'.75rem',padding:'.75rem 1.5rem',textAlign:'center',maxWidth:'560px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p style={{color:'#1d4ed8',fontSize:'.82rem'}}&gt;🔐 All documents are securely uploaded through your &lt;strong&gt;client portal&lt;/strong&gt;.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>id: 5,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>script: `✅ SCRIPT — Wrap-Up</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">"Alright, you are almost ready to go! Here's a quick recap of your to-do list:</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">1. Log into your client portal using the credentials from your email.</span></p>
-<p class="p1"><span class="s1">2. Sign your Customer Agreement inside the portal.</span></p>
-<p class="p1"><span class="s1">3. Upload your ID, proof of address, and affidavit.</span></p>
-<p class="p1"><span class="s1">4. Keep an eye on your mail AND email for anything from the credit bureaus.</span></p>
-<p class="p1"><span class="s1">5. The moment you get something — upload it to your portal right away!</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Once we have everything, we'll get your first round of dispute letters out shortly.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Do you have any questions for me before we wrap up?</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">[PAUSE for questions]</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Amazing! You are in great hands and we are so excited to start this journey with you.</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">And remember — if you ever need us, you can reach us at:</span></p>
-<p class="p1"><span class="s1">📧 processing@wemanagementservices.com</span></p>
-<p class="p1"><span class="s1">📞 (725) 307-1333</span></p>
-<p class="p1"><span class="s1">🕘 Monday–Friday, 9 AM – 5 PM Pacific Time</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">Talk soon! 😊"`,</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>clientContent: (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',textAlign:'center',background:'#fff'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1rem'}}&gt;You're Almost Ready to Go! 🚀&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style={{color:'#6b7280',marginBottom:'1.25rem',maxWidth:'500px',fontSize:'1rem'}}&gt;Here's your action list before we can launch your first round:&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{display:'flex',flexDirection:'column',gap:'.65rem',width:'100%',maxWidth:'460px',textAlign:'left',marginBottom:'1.5rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{[</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>'Log into your client portal',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>'Sign your Customer Agreement inside the portal',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>'Upload your required documents through the portal',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>'Watch for mail or emails from the credit bureaus',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>'Upload any bureau responses to your portal immediately',</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>].map((item,i)=&gt;(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div key={i} style={{display:'flex',alignItems:'center',gap:'1rem',background:'#fffbeb',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'.8rem 1.1rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;div style={{width:'1.75rem',height:'1.75rem',borderRadius:'50%',background:'#D4940A',color:'#fff',fontSize:'.8rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:700,flexShrink:0}}&gt;{i+1}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;p style={{color:'#374151',fontSize:'.88rem',fontWeight:500}}&gt;{item}&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{/* Contact info */}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{background:'#1a1a1a',borderRadius:'1rem',padding:'1rem 2rem',width:'100%',maxWidth:'460px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p style={{color:'#D4940A',fontWeight:700,fontSize:'.85rem',marginBottom:'.6rem',textTransform:'uppercase',letterSpacing:'.05em'}}&gt;Need Help? Reach Us At:&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{display:'flex',flexDirection:'column',gap:'.35rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p style={{color:'#fff',fontSize:'.85rem'}}&gt;📧 processing@wemanagementservices.com&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p style={{color:'#fff',fontSize:'.85rem'}}&gt;📞 (725) 307-1333&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p style={{color:'#9ca3af',fontSize:'.8rem'}}&gt;🕘 Mon–Fri &amp;nbsp;|&amp;nbsp; 9 AM – 5 PM Pacific Time&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},</span></p>
-<p class="p1"><span class="s1">];</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">export default function Presentation() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const [current, setCurrent] = useState(0);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const [showScript, setShowScript] = useState(true);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const [view, setView] = useState("presenter");</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const slide = slides[current];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const total = slides.length;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const prev = () =&gt; setCurrent(c =&gt; Math.max(0, c - 1));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const next = () =&gt; setCurrent(c =&gt; Math.min(total - 1, c + 1));</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const NavBar = () =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style={{background:'#f9fafb',borderTop:'1px solid #e5e7eb',padding:'1rem 2rem',display:'flex',alignItems:'center',justifyContent:'space-between'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onClick={prev} disabled={current===0} style={{cursor:current===0?'not-allowed':'pointer',border:'none',background:'#D4940A',color:'#fff',padding:'.45rem 1.25rem',borderRadius:'.75rem',fontWeight:700,fontSize:'.9rem',opacity:current===0?.35:1}}&gt;← Back&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',gap:'.4rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{slides.map((_,i)=&gt;(</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;button key={i} onClick={()=&gt;setCurrent(i)} style={{cursor:'pointer',border:'none',width:'11px',height:'11px',borderRadius:'50%',background:i===current?'#D4940A':'#d1d5db',padding:0}}/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>))}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button onClick={next} disabled={current===total-1} style={{cursor:current===total-1?'not-allowed':'pointer',border:'none',background:'#D4940A',color:'#fff',padding:'.45rem 1.25rem',borderRadius:'.75rem',fontWeight:700,fontSize:'.9rem',opacity:current===total-1?.35:1}}&gt;Next →&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const CompanyName = ({dark}) =&gt; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style={{display:'flex',alignItems:'baseline',gap:'5px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span style={{fontSize:'1.15rem',fontWeight:900,color:'#D4940A'}}&gt;WE&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span style={{fontSize:'1.15rem',fontWeight:900,color: dark?'#fff':'#1a1a1a'}}&gt;MANAGEMENT SERVICES&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (view === "client") {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{minHeight:'100vh',background:'#fff',display:'flex',flexDirection:'column',fontFamily:'Segoe UI,Inter,sans-serif'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{background:'#1a1a1a',color:'#fff',padding:'.75rem 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;CompanyName dark/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{display:'flex',alignItems:'center',gap:'1rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span style={{color:'#9ca3af',fontSize:'.85rem'}}&gt;Slide {current+1} of {total}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button onClick={()=&gt;setView('presenter')} style={{cursor:'pointer',border:'none',background:'#D4940A',color:'#fff',fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}&gt;Presenter View&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{flex:1,minHeight:'500px'}}&gt;{slide.clientContent}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;NavBar/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>return (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style={{minHeight:'100vh',background:'#111827',display:'flex',flexDirection:'column',fontFamily:'Segoe UI,Inter,sans-serif'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{background:'#1f2937',color:'#fff',padding:'.75rem 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between',borderBottom:'1px solid #374151'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{display:'flex',alignItems:'center',gap:'.75rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;span style={{background:'#D4940A',color:'#fff',fontSize:'.72rem',fontWeight:700,padding:'.25rem .6rem',borderRadius:'.4rem'}}&gt;PRESENTER&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;CompanyName dark/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{display:'flex',alignItems:'center',gap:'.75rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;button onClick={()=&gt;setShowScript(s=&gt;!s)} style={{cursor:'pointer',background:showScript?'#facc15':'transparent',color:showScript?'#111827':'#d1d5db',border:`1px solid ${showScript?'#facc15':'#6b7280'}`,fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>{showScript?'📝 Script ON':'📝 Script OFF'}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;button onClick={()=&gt;setView('client')} style={{cursor:'pointer',border:'none',background:'#D4940A',color:'#fff',fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}&gt;👁️ Client View&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style={{display:'flex',flex:1,minHeight:'600px'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style={{background:'#fff',display:'flex',flexDirection:'column',width:showScript?'60%':'100%',transition:'width .3s'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{background:'#fffbeb',borderBottom:'1px solid #fde68a',padding:'.5rem 1rem',display:'flex',justifyContent:'space-between',alignItems:'center'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span style={{fontSize:'.72rem',color:'#92400e',fontWeight:700,textTransform:'uppercase',letterSpacing:'.05em'}}&gt;Client View Preview&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;span style={{fontSize:'.75rem',color:'#9ca3af'}}&gt;Slide {current+1} / {total}&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{flex:1,overflow:'auto',minHeight:'400px'}}&gt;{slide.clientContent}&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;NavBar/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>{showScript &amp;&amp; (</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div style={{background:'#111827',borderLeft:'1px solid #374151',display:'flex',flexDirection:'column',width:'40%'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{background:'#facc15',padding:'.5rem 1rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;span style={{color:'#111827',fontSize:'.72rem',fontWeight:700,textTransform:'uppercase',letterSpacing:'.05em'}}&gt;📝 Your Script — Clients Cannot See This&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div style={{flex:1,overflow:'auto',padding:'1.25rem'}}&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>&lt;pre style={{color:'#ffffff',fontSize:'.82rem',lineHeight:'1.7',whiteSpace:'pre-wrap',fontFamily:'Courier New,monospace'}}&gt;{slide.script}&lt;/pre&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>)}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>);</span></p>
-<p class="p1"><span class="s1">}</span></p>
+<div id="root"></div>
+<script type="text/babel">
+const {useState} = React;
+
+const slides = [
+  {
+    id:0,
+    script:`👋 SCRIPT — Welcome & Introduction\n\nIntroduce yourself first:\n\n"Hi [Client Name]! My name is [Your Name] and I am your dedicated Credit Repair Specialist here at WE Management Services. I'll be your main point of contact throughout your entire 12-month program — so if you ever have questions, concerns, or updates, I'm your go-to person.\n\nMy role is to guide you through this process, keep you informed every step of the way, and make sure we are working as a team to help you reach your credit goals. You are in great hands!\n\nToday I just want to take about 5 to 10 minutes of your time to walk you through exactly how your program works, what to expect, and what we'll need from you to get started.\n\nDoes that sound good?"`,
+    client:()=>(
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',textAlign:'center',padding:'2rem',background:'#fff'}}>
+        <div style={{marginBottom:'1.5rem'}}>
+          <span style={{fontSize:'2rem',fontWeight:900,color:'#D4940A'}}>WE</span>
+          <span style={{fontSize:'2rem',fontWeight:900,color:'#1a1a1a'}}> MANAGEMENT SERVICES</span>
+        </div>
+        <div style={{fontSize:'2.5rem',marginBottom:'0.75rem'}}>🌟</div>
+        <h1 style={{fontSize:'2.2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'0.75rem'}}>Welcome Aboard!</h1>
+        <p style={{fontSize:'1.1rem',color:'#6b7280',marginBottom:'1.5rem'}}>We're so excited to have you with us.</p>
+        <div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1.25rem 2.5rem'}}>
+          <p style={{fontSize:'1.35rem',fontWeight:700,color:'#92400e'}}>Your 12-Month Credit Repair Program</p>
+          <p style={{color:'#9ca3af',marginTop:'.4rem',fontSize:'0.95rem'}}>Let's walk you through everything you need to know.</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    id:1,
+    script:`📋 SCRIPT — Program Overview\n\n"So here's the big picture of what you've purchased:\n\n✅ You have 12 months of credit repair service.\n✅ During those 12 months, we will send up to 11 rounds of dispute letters to the credit bureaus on your behalf.\n\nNow — I want to be clear about the '11 rounds' number. That's the maximum you can receive assuming everything goes smoothly with your credit monitoring. If any credit monitoring issues come up along the way, that may affect the timing or number of rounds. We'll always keep you informed if that happens."`,
+    client:()=>(
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}>
+        <h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'2rem',textAlign:'center'}}>Your Program at a Glance</h2>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'1.5rem',width:'100%',maxWidth:'700px'}}>
+          {[{icon:'📅',label:'Duration',value:'12 Months'},{icon:'📬',label:'Total Rounds',value:'Up to 11'},{icon:'🏛️',label:'Letters Sent To',value:'Credit Bureaus'}].map((item,i)=>(
+            <div key={i} style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1.5rem',textAlign:'center'}}>
+              <div style={{fontSize:'2.5rem',marginBottom:'.75rem'}}>{item.icon}</div>
+              <p style={{color:'#9ca3af',fontSize:'.75rem',fontWeight:600,textTransform:'uppercase',letterSpacing:'.05em'}}>{item.label}</p>
+              <p style={{fontSize:'1.5rem',fontWeight:800,color:'#92400e',marginTop:'.25rem'}}>{item.value}</p>
+            </div>
+          ))}
+        </div>
+        <div style={{marginTop:'2rem',background:'#fef9c3',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'1rem 2rem',textAlign:'center',maxWidth:'600px'}}>
+          <p style={{color:'#92400e',fontWeight:500,fontSize:'.9rem'}}>⚠️ Up to 11 rounds assumes no credit monitoring issues arise during your program.</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    id:2,
+    script:`🔄 SCRIPT — How the Process Works\n\n"Let me walk you through exactly how each round works so you know what to expect:\n\n1. 📤 We prepare and send your dispute letters to the credit bureaus on your behalf.\n\n3. 📬 The bureaus have 30 to 35 days to investigate. They will contact YOU directly — either by email or by physical mail.\n\n4. 🚨 This is important: as soon as you receive ANYTHING from the bureaus, please upload it to your secure client portal right away. Once we have a copy, we will review it and respond on your behalf.\n\n2. ⏳ While we wait — the bureaus are legally required to investigate within that 30–35 day window.\n\n5. 📊 Once we have the bureau's response, we'll send you a Progress Report and launch the next round of letters.\n\nAny questions on that cycle before we move on?"`,
+    client:()=>(
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}>
+        <h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1.5rem',textAlign:'center'}}>How Each Round Works</h2>
+        <div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'580px'}}>
+          {[
+            {step:'1',icon:'📤',title:'We Send Your Dispute Letters',desc:'Letters are sent to the credit bureaus on your behalf.'},
+            {step:'2',icon:'⏳',title:'Bureau Has 30–35 Days to Respond',desc:'By law, bureaus must investigate and respond within this window.'},
+            {step:'3',icon:'📬',title:'You Receive a Response',desc:'The bureau will respond via email or physical mail.'},
+            {step:'4',icon:'🔐',title:'Upload to Your Secure Portal',desc:"Upload the bureau response to your client portal — we'll review it and respond on your behalf."},
+            {step:'5',icon:'📊',title:'Progress Report & Next Round',desc:"We'll send your progress report and launch the next round!"},
+          ].map((item,i)=>(
+            <div key={i} style={{display:'flex',alignItems:'flex-start',gap:'1rem',background:'#fff',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'1rem 1.25rem',boxShadow:'0 1px 3px rgba(0,0,0,0.06)'}}>
+              <div style={{background:'#D4940A',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:700,fontSize:'.85rem',flexShrink:0,marginTop:'2px'}}>{item.step}</div>
+              <div style={{fontSize:'1.5rem',flexShrink:0}}>{item.icon}</div>
+              <div>
+                <p style={{fontWeight:700,color:'#92400e',fontSize:'.95rem'}}>{item.title}</p>
+                <p style={{color:'#9ca3af',fontSize:'.82rem',marginTop:'2px'}}>{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  },
+  {
+    id:3,
+    script:`📧 SCRIPT — Email Confirmation\n\n"Before we go any further, I want to make sure you received a couple of important emails from us.\n\nCan you take a quick look in your inbox — and also check your spam or junk folder just in case?\n\nYou should have received TWO emails:\n\n📧 Email #1 — Portal Activation\nAfter you completed your onboarding form, you should have received an email with a link to ACTIVATE your client portal. You'll need to click that link to set up your portal access.\n\n📧 Email #2 — Your Login Details\nOnce you activated your portal, a second email was sent containing your login credentials and a direct button to access the portal.\n\n[PAUSE — give them a moment to check]\n\nDid you receive both emails and activate your portal? … Great!\n\nIf not, no worries — I'm going to resend the activation link to you right now.\n\nPlease make sure to log in and complete the required steps as soon as possible, because we cannot start your first round until that's done."`,
+    client:()=>(
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'1.5rem',background:'#fff'}}>
+        <h2 style={{fontSize:'1.8rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1rem',textAlign:'center'}}>Check Your Inbox 📬</h2>
+        <p style={{color:'#6b7280',marginBottom:'1.25rem',fontSize:'0.95rem',textAlign:'center',maxWidth:'560px'}}>You should have received <strong>2 emails</strong> from WE Management Services:</p>
+        <div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'620px'}}>
+          <div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',overflow:'hidden'}}>
+            <div style={{background:'#D4940A',padding:'.5rem 1rem',display:'flex',alignItems:'center',gap:'.5rem'}}>
+              <span style={{background:'#fff',color:'#D4940A',fontWeight:800,fontSize:'.72rem',padding:'.15rem .5rem',borderRadius:'.3rem'}}>STEP 1</span>
+              <span style={{color:'#fff',fontWeight:700,fontSize:'.82rem'}}>📧 Portal Activation Email</span>
+            </div>
+            <div style={{padding:'1rem 1.25rem'}}>
+              <p style={{fontWeight:700,color:'#92400e',fontSize:'.9rem',marginBottom:'.2rem'}}>Subject: Activate Your WE Management Client Portal</p>
+              <p style={{color:'#6b7280',fontSize:'.8rem',marginBottom:'.5rem'}}>From: WE Management Services</p>
+              <p style={{color:'#374151',fontSize:'.82rem'}}>Sent after you completed your onboarding form. Contains your <strong>portal activation link</strong> to get your account set up.</p>
+              <div style={{marginTop:'.75rem',display:'inline-block',background:'#D4940A',color:'#fff',borderRadius:'.5rem',padding:'.35rem .9rem',fontSize:'.78rem',fontWeight:700}}>Activate My Portal →</div>
+            </div>
+          </div>
+          <div style={{background:'#f0f9ff',border:'2px solid #38bdf8',borderRadius:'1rem',overflow:'hidden'}}>
+            <div style={{background:'#0ea5e9',padding:'.5rem 1rem',display:'flex',alignItems:'center',gap:'.5rem'}}>
+              <span style={{background:'#fff',color:'#0ea5e9',fontWeight:800,fontSize:'.72rem',padding:'.15rem .5rem',borderRadius:'.3rem'}}>STEP 2</span>
+              <span style={{color:'#fff',fontWeight:700,fontSize:'.82rem'}}>📧 Login Details & Portal Access</span>
+            </div>
+            <div style={{padding:'1rem 1.25rem'}}>
+              <p style={{fontWeight:700,color:'#0369a1',fontSize:'.9rem',marginBottom:'.2rem'}}>Subject: Your Account with WE Management Services is ready</p>
+              <p style={{color:'#6b7280',fontSize:'.8rem',marginBottom:'.5rem'}}>From: clientcare@wemanagementservices.com</p>
+              <p style={{color:'#374151',fontSize:'.82rem'}}>Sent after activation. Contains your <strong>login email, password,</strong> and a direct button to access your portal.</p>
+              <div style={{marginTop:'.75rem',display:'inline-block',background:'#0ea5e9',color:'#fff',borderRadius:'.5rem',padding:'.35rem .9rem',fontSize:'.78rem',fontWeight:700}}>Portal Login →</div>
+            </div>
+          </div>
+        </div>
+        <div style={{marginTop:'1rem',background:'#fef2f2',border:'1px solid #fecaca',borderRadius:'.75rem',padding:'.75rem 1.5rem',textAlign:'center',maxWidth:'620px'}}>
+          <p style={{color:'#b91c1c',fontSize:'.82rem',fontWeight:500}}>📌 Can't find them? Check your spam/junk folder — or let us know and we'll resend right away!</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    id:4,
+    script:`📁 SCRIPT — Required Documents\n\n"Now let's talk about the documents we need from you.\n\nOnce you log into your portal, you'll need to complete the following:\n\nStep 1 — Sign the Customer Agreement inside the portal dashboard.\n\nStep 2 — Upload your required documents:\n\n1. 🪪 A government-issued photo ID — like your driver's license or passport.\n2. 📄 Proof of your current address — a utility bill, bank statement, or lease agreement dated within the last 90 days works great.\n3. 🔒 An Affidavit of Identity\n\n--- IF CLIENT ASKS ABOUT THE AFFIDAVIT ---\n\n"Great question! The Affidavit of Identity is actually for YOUR protection. When we submit disputes to the credit bureaus, we use it to verify your identity and to freeze your data at the bureau level. This prevents anyone — including the bureaus — from making unauthorized changes to your credit file while we are actively working on it. It is a standard protective measure we use for all of our clients to keep their information safe."\n\n[Continue]\n"Once everything is signed and uploaded, we will review it and send out your first round of dispute letters shortly after."`,
+    client:()=>(
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',background:'#fff'}}>
+        <h2 style={{fontSize:'1.9rem',fontWeight:800,color:'#1a1a1a',marginBottom:'0.75rem',textAlign:'center'}}>📁 Complete Your Portal Steps</h2>
+        <p style={{color:'#6b7280',marginBottom:'1.25rem',textAlign:'center',maxWidth:'500px',fontSize:'0.9rem'}}>After logging into your client portal, please complete the following:</p>
+        <div style={{display:'flex',flexDirection:'column',gap:'1rem',width:'100%',maxWidth:'560px'}}>
+          <div style={{background:'#fffbeb',border:'2px solid #D4940A',borderRadius:'1rem',padding:'1rem 1.25rem',display:'flex',gap:'1rem',alignItems:'center'}}>
+            <div style={{background:'#D4940A',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,flexShrink:0}}>1</div>
+            <div>
+              <p style={{fontWeight:700,color:'#92400e'}}>✍️ Sign Your Customer Agreement</p>
+              <p style={{color:'#9ca3af',fontSize:'.82rem'}}>Review and sign the Terms of Service inside your portal dashboard.</p>
+            </div>
+          </div>
+          <div style={{background:'#f0fdf4',border:'2px solid #86efac',borderRadius:'1rem',padding:'1rem 1.25rem',display:'flex',gap:'1rem',alignItems:'flex-start'}}>
+            <div style={{background:'#16a34a',color:'#fff',borderRadius:'50%',width:'2rem',height:'2rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:800,flexShrink:0,marginTop:'2px'}}>2</div>
+            <div style={{width:'100%'}}>
+              <p style={{fontWeight:700,color:'#166534',marginBottom:'.5rem'}}>📤 Upload Required Documents</p>
+              {[
+                {icon:'🪪',title:'Government-Issued Photo ID',desc:"Driver's license, passport, or state ID"},
+                {icon:'📄',title:'Proof of Address',desc:'Utility bill, bank statement, or lease (within 90 days)'},
+                {icon:'🔒',title:'Affidavit of Identity',desc:'Protects & freezes your data during the dispute process'},
+              ].map((item,i)=>(
+                <div key={i} style={{display:'flex',gap:'.75rem',alignItems:'flex-start',marginBottom:'.5rem'}}>
+                  <span style={{fontSize:'1.2rem'}}>{item.icon}</span>
+                  <div>
+                    <p style={{fontWeight:600,color:'#166534',fontSize:'.85rem'}}>{item.title}</p>
+                    <p style={{color:'#9ca3af',fontSize:'.75rem'}}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div style={{marginTop:'1rem',background:'#eff6ff',border:'1px solid #bfdbfe',borderRadius:'.75rem',padding:'.75rem 1.5rem',textAlign:'center',maxWidth:'560px'}}>
+          <p style={{color:'#1d4ed8',fontSize:'.82rem'}}>🔐 All documents are securely uploaded through your <strong>client portal</strong>.</p>
+        </div>
+      </div>
+    )
+  },
+  {
+    id:5,
+    script:`✅ SCRIPT — Wrap-Up\n\n"Alright, you are almost ready to go! Here's a quick recap of your to-do list:\n\n1. Log into your client portal using the credentials from your email.\n2. Sign your Customer Agreement inside the portal.\n3. Upload your ID, proof of address, and affidavit.\n4. Keep an eye on your mail AND email for anything from the credit bureaus.\n5. The moment you get something — upload it to your portal right away!\n\nOnce we have everything, we'll get your first round of dispute letters out shortly.\n\nDo you have any questions for me before we wrap up?\n\n[PAUSE for questions]\n\nAmazing! You are in great hands and we are so excited to start this journey with you.\n\nAnd remember — if you ever need us, you can reach us at:\n📧 processing@wemanagementservices.com\n📞 (725) 307-1333\n🕘 Monday–Friday, 9 AM – 5 PM Pacific Time\n\nTalk soon! 😊"`,
+    client:()=>(
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',padding:'2rem',textAlign:'center',background:'#fff'}}>
+        <h2 style={{fontSize:'2rem',fontWeight:800,color:'#1a1a1a',marginBottom:'1rem'}}>You're Almost Ready to Go! 🚀</h2>
+        <p style={{color:'#6b7280',marginBottom:'1.25rem',maxWidth:'500px',fontSize:'1rem'}}>Here's your action list before we can launch your first round:</p>
+        <div style={{display:'flex',flexDirection:'column',gap:'.65rem',width:'100%',maxWidth:'460px',textAlign:'left',marginBottom:'1.5rem'}}>
+          {['Log into your client portal','Sign your Customer Agreement inside the portal','Upload your required documents through the portal','Watch for mail or emails from the credit bureaus','Upload any bureau responses to your portal immediately'].map((item,i)=>(
+            <div key={i} style={{display:'flex',alignItems:'center',gap:'1rem',background:'#fffbeb',border:'1px solid #fde68a',borderRadius:'.75rem',padding:'.8rem 1.1rem'}}>
+              <div style={{width:'1.75rem',height:'1.75rem',borderRadius:'50%',background:'#D4940A',color:'#fff',fontSize:'.8rem',display:'flex',alignItems:'center',justifyContent:'center',fontWeight:700,flexShrink:0}}>{i+1}</div>
+              <p style={{color:'#374151',fontSize:'.88rem',fontWeight:500}}>{item}</p>
+            </div>
+          ))}
+        </div>
+        <div style={{background:'#1a1a1a',borderRadius:'1rem',padding:'1rem 2rem',width:'100%',maxWidth:'460px'}}>
+          <p style={{color:'#D4940A',fontWeight:700,fontSize:'.85rem',marginBottom:'.6rem',textTransform:'uppercase',letterSpacing:'.05em'}}>Need Help? Reach Us At:</p>
+          <p style={{color:'#fff',fontSize:'.85rem',marginBottom:'.3rem'}}>📧 processing@wemanagementservices.com</p>
+          <p style={{color:'#fff',fontSize:'.85rem',marginBottom:'.3rem'}}>📞 (725) 307-1333</p>
+          <p style={{color:'#9ca3af',fontSize:'.8rem'}}>🕘 Mon–Fri &nbsp;|&nbsp; 9 AM – 5 PM Pacific Time</p>
+        </div>
+      </div>
+    )
+  }
+];
+
+function App(){
+  const [cur,setCur]=useState(0);
+  const [showScript,setShowScript]=useState(true);
+  const [view,setView]=useState('presenter');
+  const total=slides.length;
+  const slide=slides[cur];
+  const Slide=slide.client;
+
+  const Nav=()=>(
+    <div style={{background:'#f9fafb',borderTop:'1px solid #e5e7eb',padding:'1rem 2rem',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+      <button onClick={()=>setCur(c=>Math.max(0,c-1))} disabled={cur===0} style={{background:'#D4940A',color:'#fff',padding:'.45rem 1.25rem',borderRadius:'.75rem',fontWeight:700,fontSize:'.9rem'}}>← Back</button>
+      <div style={{display:'flex',gap:'.4rem'}}>
+        {slides.map((_,i)=>(
+          <button key={i} onClick={()=>setCur(i)} style={{width:'11px',height:'11px',borderRadius:'50%',background:i===cur?'#D4940A':'#d1d5db',padding:0}}/>
+        ))}
+      </div>
+      <button onClick={()=>setCur(c=>Math.min(total-1,c+1))} disabled={cur===total-1} style={{background:'#D4940A',color:'#fff',padding:'.45rem 1.25rem',borderRadius:'.75rem',fontWeight:700,fontSize:'.9rem'}}>Next →</button>
+    </div>
+  );
+
+  const Brand=({dark})=>(
+    <span>
+      <span style={{fontWeight:900,color:'#D4940A',fontSize:'1.1rem'}}>WE</span>
+      <span style={{fontWeight:900,color:dark?'#fff':'#1a1a1a',fontSize:'1.1rem'}}> MANAGEMENT SERVICES</span>
+    </span>
+  );
+
+  if(view==='client') return(
+    <div style={{minHeight:'100vh',background:'#fff',display:'flex',flexDirection:'column'}}>
+      <div style={{background:'#1a1a1a',padding:'.75rem 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+        <Brand dark/>
+        <div style={{display:'flex',alignItems:'center',gap:'1rem'}}>
+          <span style={{color:'#9ca3af',fontSize:'.85rem'}}>Slide {cur+1} of {total}</span>
+          <button onClick={()=>setView('presenter')} style={{background:'#D4940A',color:'#fff',fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}>Presenter View</button>
+        </div>
+      </div>
+      <div style={{flex:1,minHeight:'500px'}}><Slide/></div>
+      <Nav/>
+    </div>
+  );
+
+  return(
+    <div style={{minHeight:'100vh',background:'#111827',display:'flex',flexDirection:'column'}}>
+      <div style={{background:'#1f2937',padding:'.75rem 1.5rem',display:'flex',alignItems:'center',justifyContent:'space-between',borderBottom:'1px solid #374151'}}>
+        <div style={{display:'flex',alignItems:'center',gap:'.75rem'}}>
+          <span style={{background:'#D4940A',color:'#fff',fontSize:'.72rem',fontWeight:700,padding:'.25rem .6rem',borderRadius:'.4rem'}}>PRESENTER</span>
+          <Brand dark/>
+        </div>
+        <div style={{display:'flex',alignItems:'center',gap:'.75rem'}}>
+          <button onClick={()=>setShowScript(s=>!s)} style={{background:showScript?'#facc15':'transparent',color:showScript?'#111827':'#d1d5db',border:`1px solid ${showScript?'#facc15':'#6b7280'}`,fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}>
+            {showScript?'📝 Script ON':'📝 Script OFF'}
+          </button>
+          <button onClick={()=>setView('client')} style={{background:'#D4940A',color:'#fff',fontSize:'.78rem',fontWeight:700,padding:'.3rem .8rem',borderRadius:'.5rem'}}>👁️ Client View</button>
+        </div>
+      </div>
+      <div style={{display:'flex',flex:1,minHeight:'600px'}}>
+        <div style={{background:'#fff',display:'flex',flexDirection:'column',width:showScript?'60%':'100%',transition:'width .3s'}}>
+          <div style={{background:'#fffbeb',borderBottom:'1px solid #fde68a',padding:'.5rem 1rem',display:'flex',justifyContent:'space-between'}}>
+            <span style={{fontSize:'.72rem',color:'#92400e',fontWeight:700,textTransform:'uppercase',letterSpacing:'.05em'}}>Client View Preview</span>
+            <span style={{fontSize:'.75rem',color:'#9ca3af'}}>Slide {cur+1} / {total}</span>
+          </div>
+          <div style={{flex:1,overflow:'auto',minHeight:'400px'}}><Slide/></div>
+          <Nav/>
+        </div>
+        {showScript&&(
+          <div style={{background:'#111827',borderLeft:'1px solid #374151',display:'flex',flexDirection:'column',width:'40%'}}>
+            <div style={{background:'#facc15',padding:'.5rem 1rem'}}>
+              <span style={{color:'#111827',fontSize:'.72rem',fontWeight:700,textTransform:'uppercase',letterSpacing:'.05em'}}>📝 Your Script — Clients Cannot See This</span>
+            </div>
+            <div style={{flex:1,overflow:'auto',padding:'1.25rem'}}>
+              <pre style={{color:'#fff',fontSize:'.82rem',lineHeight:'1.7',whiteSpace:'pre-wrap'}}>{slide.script}</pre>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
 </body>
 </html>
